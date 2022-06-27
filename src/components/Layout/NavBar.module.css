@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Quicksand:wght@600&family=Rampart+One&family=Roboto&family=Yuji+Boku&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  flex-direction: row;
+}
+
+.nav_options {
+  margin-top: 8px;
+}
+
+header {
+  color: aqua;
+  font-size: 1cm;
+  font-family: 'Quicksand', sans-serif;
+}
+
+a {
+  justify-content: right;
+  padding: 15px;
+  font-size: large;
+}
+
+a:hover {
+  transition: 0.3s;
+  color: aqua;
+}

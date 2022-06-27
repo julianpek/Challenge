@@ -1,0 +1,14 @@
+.button {
+  display: flex;
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 15px;
+}
+
+.button:hover {
+  transition: 0.3s;
+  background-color: rgba(0, 0, 255, 0.405);
+}

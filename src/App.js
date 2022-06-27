@@ -1,13 +1,14 @@
-import CustomerList from './components/CustomerList';
-import Customer from './components/Customer';
-
-import Button from './components/styled/Button.styled';
+import EditCustomer from './components/EditCustomer';
+import NavBar from './components/Layout/NavBar';
+import Wrapper from './components/UI/Wrapper';
 
 function App() {
   return (
     <>
-      <Customer/>
-      <CustomerList />
+      <NavBar />
+      <Wrapper>
+        <EditCustomer />
+      </Wrapper>
     </>
   );
 }
