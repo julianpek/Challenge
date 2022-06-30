@@ -5,7 +5,6 @@ const NavBar = () => {
     <div className={classes.navbar}>
       <header>Wave Challenge</header>
       <div className={classes.nav_options}>
-        <a>Invoicing</a>
         <a>Customers</a>
       </div>
     </div>

@@ -1,0 +1,14 @@
+th {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+td {
+  border-bottom: 2px solid rgb(243, 243, 243);
+  padding: 22px;
+}
+
+tr:hover {
+  transition: 0.3s;
+  background-color: rgb(243, 243, 243);
+}

@@ -14,3 +14,8 @@ body {
   margin-right: 0;
   background-color: white;
 }
+
+p {
+  display: flex;
+  justify-content: center;
+}

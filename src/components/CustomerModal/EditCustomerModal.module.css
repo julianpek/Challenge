@@ -1,0 +1,63 @@
+form {
+
+}
+
+.form_control input,
+.form_control select {
+  padding: 10px;
+  border-style: none;
+  border-radius: 6px;
+  background-color: rgb(226, 226, 226);
+  width: 250px;
+}
+
+.form_control__invalid input,
+.form_control__invalid select {
+  padding: 10px;
+  border-style: none;
+  border-radius: 6px;
+  background-color: lightpink;
+  width: 250px;
+}
+
+.form_control input:focus,
+.form_control select:focus {
+  padding: 10px;
+  outline: none;
+  border-style: none;
+  border-radius: 6px;
+  background-color: rgb(200, 200, 200);
+  width: 250px;
+}
+
+.form_control__invalid input:focus,
+.form_control__invalid select:focus {
+  border-style: none;
+  background-color: #fbbf7b;
+  outline: none;
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error_text {
+  margin: 2px;
+  color: crimson;
+}
+
+.form_container {
+  display: flex;
+  justify-content: center;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
