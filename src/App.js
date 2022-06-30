@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import EditCustomerModal from './components/CustomerModal/EditCustomerModal';
-import CustomerList from './components/CustomerList/CustomerList';
+import CustomerTable from './components/CustomerTable/CustomerTable';
 import NavBar from './components/Layout/NavBar';
 import Container from './components/UI/Container';
 
@@ -44,30 +43,13 @@ function App() {
     setEditCustomerId(id);
   };
 
-  const showEditModalHandler = () => {
-    setIsUserEditing(true);
-  };
-
-  const closeEditModalHandler = () => {
-    setIsUserEditing(false);
-  };
-
-  const saveButtonHandler = () => {};
-
   return (
     <>
       <NavBar />
       <Container>
-        {isUserEditing && (
-          <EditCustomerModal
-            customer={customers}
-            backBtn={closeEditModalHandler}
-          />
-        )}
         {!isLoading && customers.length > 0 && (
-          <CustomerList
+          <CustomerTable
             customers={customers}
-            editBtn={showEditModalHandler}
             customerId={customerIdHandler}
           />
         )}

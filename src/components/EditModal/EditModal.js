@@ -5,12 +5,12 @@ import Modal from '../UI/Modal';
 
 import useInput from '../../hooks/use-input';
 
-import classes from './EditCustomerModal.module.css';
+import classes from './EditModal.module.css';
 
 import provinces from '../../data/provinces';
 import channels from '../../data/channels';
 
-const EditCustomerModal = props => {
+const EditModal = props => {
   const {
     value: enteredName,
     valueIsValid: nameIsValid,
@@ -226,4 +226,4 @@ const EditCustomerModal = props => {
   );
 };
 
-export default EditCustomerModal;
+export default EditModal;
