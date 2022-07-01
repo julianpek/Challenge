@@ -11,7 +11,11 @@ const Select = props => {
     <div className={props.className}>
       <label>{props.labelName}</label>
       <br />
-      <select onChange={props.onChange} onBlur={props.onBlur}>
+      <select
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+        defaultValue={props.customer}
+      >
         {mappedData}
       </select>
       {props.hasError && (

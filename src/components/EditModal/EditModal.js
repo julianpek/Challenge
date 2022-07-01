@@ -9,10 +9,12 @@ import classes from './EditModal.module.css';
 
 import provinces from '../../data/provinces';
 import channels from '../../data/channels';
+import { useEffect } from 'react';
 
 const EditModal = props => {
   const {
     value: enteredName,
+    setEnteredValue: setEnteredName,
     valueIsValid: nameIsValid,
     hasError: nameHasError,
     valueChangeHandler: nameChangeHandler,
@@ -23,6 +25,7 @@ const EditModal = props => {
   const {
     value: enteredEmail,
     valueIsValid: emailIsValid,
+    setEnteredValue: setEnteredEmail,
     hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
     valueBlurHandler: emailBlurHandler,
@@ -35,6 +38,7 @@ const EditModal = props => {
 
   const {
     value: enteredChannel,
+    setEnteredValue: setEnteredChannel,
     valueIsValid: channelIsValid,
     hasError: channelHasError,
     valueChangeHandler: channelChangeHandler,
@@ -44,6 +48,7 @@ const EditModal = props => {
 
   const {
     value: enteredAddress,
+    setEnteredValue: setEnteredAddress,
     valueIsValid: addressIsValid,
     hasError: addressHasError,
     valueChangeHandler: addressChangeHandler,
@@ -53,6 +58,7 @@ const EditModal = props => {
 
   const {
     value: enteredPostalCode,
+    setEnteredValue: setEnteredPostalCode,
     valueIsValid: postalCodeIsValid,
     hasError: postalCodeHasError,
     valueChangeHandler: postalCodeChangeHandler,
@@ -66,6 +72,7 @@ const EditModal = props => {
 
   const {
     value: enteredCity,
+    setEnteredValue: setEnteredCity,
     valueIsValid: cityIsValid,
     hasError: cityHasError,
     valueChangeHandler: cityChangeHandler,
@@ -75,6 +82,7 @@ const EditModal = props => {
 
   const {
     value: enteredProvince,
+    setEnteredValue: setEnteredProvince,
     valueIsValid: provinceIsValid,
     hasError: provinceHasError,
     valueChangeHandler: provinceChangeHandler,
@@ -90,24 +98,43 @@ const EditModal = props => {
     channelIsValid &&
     addressIsValid &&
     postalCodeIsValid &&
-    cityIsValid
+    cityIsValid &&
+    provinceIsValid
   ) {
     isFormValid = true;
   }
 
   const formSubmitHandler = e => {
     e.preventDefault();
-    console.log(
-      enteredName,
-      enteredEmail,
-      enteredAddress,
-      enteredPostalCode,
-      enteredCity,
-      enteredProvince,
-      enteredChannel
-    );
+    const editedData = {
+      id: props.customer.id,
+      name: enteredName,
+      email: enteredEmail,
+      address: enteredAddress,
+      postal: enteredPostalCode,
+      city: enteredCity,
+      province: enteredProvince,
+      channel: enteredChannel,
+    };
+
+    const payLoad = JSON.stringify(editedData);
+
+    console.log(payLoad);
+
     props.backBtn(false);
   };
+
+  useEffect(() => {
+    if (props.editing) {
+      setEnteredName(props.customer.name);
+      setEnteredEmail(props.customer.email);
+      setEnteredAddress(props.customer.address);
+      setEnteredPostalCode(props.customer.postal);
+      setEnteredCity(props.customer.city);
+      setEnteredChannel(props.customer.channel);
+      setEnteredProvince(props.customer.province);
+    }
+  }, []);
 
   const nameClasses = nameHasError
     ? `${classes.form_control__invalid}`
@@ -201,6 +228,7 @@ const EditModal = props => {
             hasError={provinceHasError}
             paragraphClass={classes.error_text}
             options={provinces}
+            customer={props.customer.province}
           />
           <Select
             className={channelClasses}
@@ -213,6 +241,7 @@ const EditModal = props => {
             hasError={channelHasError}
             paragraphClass={classes.error_text}
             options={channels}
+            customer={props.customer.channel}
           />
           <div className={classes.button_container}>
             <Button onClick={props.backBtn}>Back</Button>

@@ -8,10 +8,6 @@ function App() {
   const [customers, setCustomers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [isUserEditing, setIsUserEditing] = useState(false);
-  const [editCustomerId, setEditCustomerId] = useState('');
-
-  console.log(customers);
 
   const fetchCustomersHandler = useCallback(async () => {
     setIsLoading(true);
@@ -39,19 +35,12 @@ function App() {
     fetchCustomersHandler();
   }, [fetchCustomersHandler]);
 
-  const customerIdHandler = id => {
-    setEditCustomerId(id);
-  };
-
   return (
     <>
       <NavBar />
       <Container>
         {!isLoading && customers.length > 0 && (
-          <CustomerTable
-            customers={customers}
-            customerId={customerIdHandler}
-          />
+          <CustomerTable customers={customers} />
         )}
         {!isLoading && customers.length === 0 && !error && (
           <p>No customers found.</p>

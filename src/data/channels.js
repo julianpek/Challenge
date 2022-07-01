@@ -1,3 +1,3 @@
-const channels = ['', 'Website', 'Email', 'Phone', 'Word-of-mouth', 'Other'];
+const channels = ['', 'website', 'email', 'phone', 'word-of-mouth', 'other'];
 
 export default channels;

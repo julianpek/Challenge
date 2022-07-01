@@ -32,7 +32,9 @@ const CustomerTable = props => {
 
   return (
     <>
-      {isEditing && <EditModal backBtn={onClose} customer={customer} />}
+      {isEditing && (
+        <EditModal backBtn={onClose} customer={customer} editing={isEditing} />
+      )}
       <div className={classes.container}>
         <h1>Customers</h1>
       </div>
