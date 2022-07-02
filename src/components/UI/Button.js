@@ -6,7 +6,7 @@ const Button = props => {
       disabled={props.disabled}
       type={props.type}
       value={props.value}
-      className={props.greenButton ? classes.button_green : classes.button}
+      className={props.isGreen ? classes.button_green : classes.button}
       onClick={props.onClick}
     >
       {props.children}

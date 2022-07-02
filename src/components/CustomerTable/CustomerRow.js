@@ -4,7 +4,7 @@ import classes from './CustomerRow.module.css';
 
 const CustomerRow = props => {
   const buttonClickHandler = () => {
-    props.onClick()
+    props.onClick();
   };
 
   return (

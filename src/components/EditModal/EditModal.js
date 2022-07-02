@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import Input from '../UI/Input';
 import Button from '../UI/Button';
 import Select from '../UI/Select';
@@ -7,9 +9,9 @@ import useInput from '../../hooks/use-input';
 
 import classes from './EditModal.module.css';
 
+import states from '../../data/states';
 import provinces from '../../data/provinces';
 import channels from '../../data/channels';
-import { useEffect } from 'react';
 
 const EditModal = props => {
   const {
@@ -19,7 +21,6 @@ const EditModal = props => {
     hasError: nameHasError,
     valueChangeHandler: nameChangeHandler,
     valueBlurHandler: nameBlurHandler,
-    reset: resetName,
   } = useInput(value => value.trim() !== '');
 
   const {
@@ -29,7 +30,6 @@ const EditModal = props => {
     hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
     valueBlurHandler: emailBlurHandler,
-    reset: resetEmail,
   } = useInput(value => {
     const regex = /\S+@\S+\.\S+/;
     const result = regex.test(value);
@@ -43,7 +43,6 @@ const EditModal = props => {
     hasError: channelHasError,
     valueChangeHandler: channelChangeHandler,
     valueBlurHandler: channelBlurHandler,
-    reset: resetChannel,
   } = useInput(value => value.trim() !== '');
 
   const {
@@ -53,7 +52,6 @@ const EditModal = props => {
     hasError: addressHasError,
     valueChangeHandler: addressChangeHandler,
     valueBlurHandler: addressBlurHandler,
-    reset: resetAddress,
   } = useInput(value => value);
 
   const {
@@ -63,7 +61,6 @@ const EditModal = props => {
     hasError: postalCodeHasError,
     valueChangeHandler: postalCodeChangeHandler,
     valueBlurHandler: postalCodeBlurHandler,
-    reset: resetPostalCode,
   } = useInput(value => {
     const regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
     const result = regex.test(value);
@@ -77,7 +74,6 @@ const EditModal = props => {
     hasError: cityHasError,
     valueChangeHandler: cityChangeHandler,
     valueBlurHandler: cityBlurHandler,
-    reset: resetCity,
   } = useInput(value => value.trim() !== '');
 
   const {
@@ -87,7 +83,6 @@ const EditModal = props => {
     hasError: provinceHasError,
     valueChangeHandler: provinceChangeHandler,
     valueBlurHandler: provinceBlurHandler,
-    reset: resetProvince,
   } = useInput(value => value.trim() !== '');
 
   let isFormValid = false;
@@ -110,11 +105,12 @@ const EditModal = props => {
       id: props.customer.id,
       name: enteredName,
       email: enteredEmail,
+      channel: enteredChannel,
       address: enteredAddress,
       postal: enteredPostalCode,
       city: enteredCity,
       province: enteredProvince,
-      channel: enteredChannel,
+      country: props.customer.country,
     };
 
     const payLoad = JSON.stringify(editedData);
@@ -197,9 +193,9 @@ const EditModal = props => {
           />
           <Input
             className={postalCodeClasses}
-            labelName={'Postal Code'}
+            labelName={props.canadian ? 'Postal Code' : 'Zip Code'}
             type={'text'}
-            id={'postal-code'}
+            id={props.canadian ? 'postal-code' : 'zip-code'}
             onChange={postalCodeChangeHandler}
             onBlur={postalCodeBlurHandler}
             value={enteredPostalCode}
@@ -219,15 +215,15 @@ const EditModal = props => {
           />
           <Select
             className={provinceClasses}
-            labelName={'Province'}
-            key={'province'}
-            id={'province'}
+            labelName={props.canadian ? 'Province' : 'State'}
+            key={props.canadian ? 'province' : 'state'}
+            id={props.canadian ? 'province' : 'state'}
             value={enteredProvince}
             onChange={provinceChangeHandler}
             onBlur={provinceBlurHandler}
             hasError={provinceHasError}
             paragraphClass={classes.error_text}
-            options={provinces}
+            options={props.canadian ? provinces : states}
             customer={props.customer.province}
           />
           <Select
@@ -245,7 +241,7 @@ const EditModal = props => {
           />
           <div className={classes.button_container}>
             <Button onClick={props.backBtn}>Back</Button>
-            <Button disabled={!isFormValid} type='save' greenButton={true}>
+            <Button disabled={!isFormValid} type='save' isGreen={true}>
               Save
             </Button>
           </div>

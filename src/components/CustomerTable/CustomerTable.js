@@ -8,13 +8,15 @@ import classes from './CustomerTable.module.css';
 const CustomerTable = props => {
   const [isEditing, setIsEditing] = useState(false);
   const [customer, setCustomer] = useState();
+  const [isCanadian, setIsCanadian] = useState(false);
 
   const onEdit = data => {
     setIsEditing(true);
     setCustomer(data);
+    if (data.country === 'CA') {
+      setIsCanadian(true);
+    }
   };
-
-  console.log(customer);
 
   const onClose = () => {
     setIsEditing(false);
@@ -33,7 +35,12 @@ const CustomerTable = props => {
   return (
     <>
       {isEditing && (
-        <EditModal backBtn={onClose} customer={customer} editing={isEditing} />
+        <EditModal
+          backBtn={onClose}
+          customer={customer}
+          editing={isEditing}
+          canadian={isCanadian}
+        />
       )}
       <div className={classes.container}>
         <h1>Customers</h1>
