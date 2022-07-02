@@ -8,6 +8,4 @@ const NavBar = () => {
   );
 };
 
-console.log(`${process.env.PUBLIC_URL}/wavelogo.png`);
-
 export default NavBar;

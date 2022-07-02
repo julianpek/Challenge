@@ -7,10 +7,10 @@
 ## Table of Contents
 
 1. [About the Project](#about-the-project)
-2. [Screenshots](#screenshots)
-3. [Technologies](#technologies)
-4. [Setup](#setup)
-5. [Approach](#approach)
+2. [What I Am Proud Of](#what-i-am-proud-of)
+3. [Screenshots](#screenshots)
+4. [Technologies](#technologies)
+5. [Setup](#setup)
 6. [Status](#status)
 7. [Credits](#credits)
 
@@ -20,12 +20,12 @@ The goal of this project was to create a customer list prototype that is easily 
 
 ## What I Am Proud Of
 
-What I am particulary proud of is how I decided to validate both user inputs and the edit form as a whole. Instead of validating inputs upon submission or displaying a generic alert, I decided to validate each input field onBlur and display the relavant error beside the appropriate input field. Each input field uses it's own validation function. For specific input fields like Email or Postal Code, unique regex is used to ensure the appropriate character combination is entered. In addition to this, if all input fields aren't valid, the user is unable to press the Save button. The button is disabled by default unless all fields are valid. I am proud of this approach because if gives the user direct feedback before submitting the form. This can guide the user to submit the form successfully on their first attempt resulting in a better user experience. 
+What I am particulary proud of is how I decided to validate user inputs and the edit form as a whole. Instead of validating inputs upon submission or displaying a generic alert, I decided to validate each input field onBlur and display the relavant error beside the appropriate input field. Each input field uses it's own validation function. For specific input fields like Email or Postal Code, unique regex is used to ensure the appropriate character combination is entered. In addition to this, if all input fields aren't valid, the user is unable to press the Save button. The button is disabled by default unless all fields are valid. I am proud of this approach because it gives the user direct feedback before submitting the form. This can guide the user to submit the form successfully on their first attempt resulting in a better user experience.
 
 ## Screenshots
 
-![](/challenge-customer.png)
-![](/challenge-edit-modal.png)
+![Customer List](challenge-customer.png)
+![Edit Modal](challenge-edit-modal.png)
 
 ## Technologies
 
