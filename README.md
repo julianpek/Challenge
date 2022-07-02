@@ -24,8 +24,8 @@ What I am particulary proud of is how I decided to validate user inputs and the 
 
 ## Screenshots
 
-![Customer List](/challenge-customer.png)
-![Edit Modal](/challenge-edit-modal.png)
+![Customer List](https://user-images.githubusercontent.com/85806647/176986715-f1fbbc6d-af0c-4b0c-950f-405be1cd0a15.png)
+![Edit Modal](https://user-images.githubusercontent.com/85806647/176986716-a288c64a-017a-47c0-ad09-cd2257e10a57.png)
 
 ## Technologies
 
